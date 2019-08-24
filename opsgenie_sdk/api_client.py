@@ -22,7 +22,6 @@ import uuid
 
 # python 2 and python 3 compatibility library
 import six
-from numpy import long
 from retry.api import retry_call
 from six.moves.urllib.parse import quote
 
@@ -58,7 +57,7 @@ class ApiClient(object):
     PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
     NATIVE_TYPES_MAPPING = {
         'int': int,
-        'long': int if six.PY3 else long,  # noqa: F821
+        'long': int if six.PY3 else long,
         'float': float,
         'str': str,
         'bool': bool,
